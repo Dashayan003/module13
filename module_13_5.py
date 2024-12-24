@@ -10,9 +10,9 @@ bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
 
-keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-button_calculate = types.KeyboardButton(text="Рассчитать")
-button_info = types.KeyboardButton(text="Информация")
+keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
+button_calculate = KeyboardButton(text="Рассчитать")
+button_info = KeyboardButton(text="Информация")
 keyboard.add(button_calculate, button_info)
 
 
@@ -31,7 +31,7 @@ class UserState(StatesGroup):
 
 
 @dp.message_handler(text=['Рассчитать'])
-async def set_age(message: types.Message):
+async def set_age(message):
     await message.answer("Введите свой возраст:")
     await UserState.age.set()
 
