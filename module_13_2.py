@@ -7,14 +7,13 @@ bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
 
-@dp.message_handler(text=['/start'])
+@dp.message_handler(commands=['start'])
 async def start_message(message):
     print('Привет! Я бот помогающий твоему здоровью.')
 
 
-# Функция, срабатывающая при любых других сообщениях
 @dp.message_handler()
-async def all_message(messagee):
+async def all_message(message):
     print('Введите команду /start, чтобы начать общение.')
 
 
